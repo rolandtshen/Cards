@@ -9,7 +9,6 @@ target 'Cards' do
 pod 'ChameleonFramework/Swift'
 pod 'RealmSwift'
 pod 'DZNEmptyDataSet'
-pod 'FontAwesomeKit'
 pod "TextFieldEffects"
-
+pod 'FlatUIKit'
 end

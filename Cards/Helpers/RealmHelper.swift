@@ -39,5 +39,4 @@ struct RealmHelper {
         let cards = realm.objects(Card).sorted("modificationTime", ascending: true)
         return cards
     }
-    
 }

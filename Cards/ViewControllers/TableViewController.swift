@@ -61,7 +61,7 @@ class TableViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpt
             return cards.count
         }
         else {
-            return 0
+            return 1
         }
     }
     
@@ -83,17 +83,21 @@ class TableViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpt
         cell.name.textColor = UIColor(contrastingBlackOrWhiteColorOn: view.backgroundColor, isFlat: true)
         cell.job.textColor = UIColor(contrastingBlackOrWhiteColorOn: view.backgroundColor, isFlat: true)
         
-        //setting that cell's view
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let viewCard: ViewCardController = storyboard.instantiateViewControllerWithIdentifier("ViewCard") as! ViewCardController
-//        viewCard.photo.image = UIImage(data: card.imageData, scale: 1.0)
-//        viewCard.name.text = card.name
-//        viewCard.job.text = card.job
-//        viewCard.email.text = card.email
-//        viewCard.phone.text = card.phoneNum
+        //round cell corners
+        cell.contentView.layer.cornerRadius = 5
+        cell.contentView.layer.masksToBounds = true
         
         return cell
     }
+    
+//    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+//        if(cards != nil) {
+//            return cards.count
+//        }
+//        else {
+//            return 1
+//        }
+//    }
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         let card = cards[indexPath.row]
@@ -109,5 +113,6 @@ class TableViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpt
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        }
+        
+    }
 }

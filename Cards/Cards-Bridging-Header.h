@@ -11,5 +11,6 @@
 
 #import "UIScrollView+EmptyDataSet.h"
 #import "Realm.h"
+#import "FlatUIKit.h"
 
 #endif /* Cards_Bridging_Header_h */

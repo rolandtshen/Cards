@@ -3,21 +3,7 @@ PODS:
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
   - DZNEmptyDataSet (1.8.1)
-  - FontAwesomeKit (2.2.0):
-    - FontAwesomeKit/Core (= 2.2.0)
-    - FontAwesomeKit/FontAwesome (= 2.2.0)
-    - FontAwesomeKit/FoundationIcons (= 2.2.0)
-    - FontAwesomeKit/IonIcons (= 2.2.0)
-    - FontAwesomeKit/Zocial (= 2.2.0)
-  - FontAwesomeKit/Core (2.2.0)
-  - FontAwesomeKit/FontAwesome (2.2.0):
-    - FontAwesomeKit/Core
-  - FontAwesomeKit/FoundationIcons (2.2.0):
-    - FontAwesomeKit/Core
-  - FontAwesomeKit/IonIcons (2.2.0):
-    - FontAwesomeKit/Core
-  - FontAwesomeKit/Zocial (2.2.0):
-    - FontAwesomeKit/Core
+  - FlatUIKit (1.6.2)
   - Realm (1.0.1):
     - Realm/Headers (= 1.0.1)
   - Realm/Headers (1.0.1)
@@ -28,18 +14,18 @@ PODS:
 DEPENDENCIES:
   - ChameleonFramework/Swift
   - DZNEmptyDataSet
-  - FontAwesomeKit
+  - FlatUIKit
   - RealmSwift
   - TextFieldEffects
 
 SPEC CHECKSUMS:
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  FontAwesomeKit: 025fd4dd1017fe4e3f8d47b03e024deedbb33cd4
+  FlatUIKit: 1b41f0d4952ce8d970d8479ce79df54a960242c4
   Realm: 2e15e39d35b08abb529e212ed5d8af107b5236c8
   RealmSwift: d73ea2af08c3676dbdd5e4b669651a0f492162a4
   TextFieldEffects: bc4fd3bd557321bd61a0762f3f50965477a36f62
 
-PODFILE CHECKSUM: a3173b5bdc11083a977f4d263972b5ded27b0844
+PODFILE CHECKSUM: 631ff01d88da0a41b1853fc4d42775a5e2dd679d
 
 COCOAPODS: 1.0.1

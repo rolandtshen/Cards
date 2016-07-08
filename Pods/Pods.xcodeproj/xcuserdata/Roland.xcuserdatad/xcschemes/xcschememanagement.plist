@@ -14,7 +14,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>FontAwesomeKit.xcscheme</key>
+		<key>FlatUIKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -42,12 +42,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>05259ED4797CE3351B019AD950FEE599</key>
+		<key>16FB872D0D2D4BA0F378AB34D47CF95F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>16FB872D0D2D4BA0F378AB34D47CF95F</key>
+		<key>4D709D56F0FC251A78E5E965E734DA86</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,22 +57,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5314C6AB2D21B7ECEAA1B13F516FF113</key>
+		<key>AD0892BE565CA9D5A839B9137561277C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8BE9D4B6FF6D92923152CB0534F2BB94</key>
+		<key>BA50F8DC8BC11440714A9D9A0B1992EF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E6C1AEA0730F044E4A3777E7AAD7C883</key>
+		<key>C3B4882137F5F01672814C609A8A3E55</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EB942982F8032D7208664EF442A3C087</key>
+		<key>D32DA486A19F8684FB9E0B09F613A86F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
