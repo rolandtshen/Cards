@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import ChameleonFramework
+import RealmSwift
 
 class NewCardController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -19,22 +20,56 @@ class NewCardController: UIViewController, UIImagePickerControllerDelegate, UINa
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var phoneField: UITextField!
 
-    var card: Card?
+    var card: Card? {
+        didSet {
+            hexTheme = card?.theme as? String
+        }
+    }
+    var hexTheme: String?
     var imagePickerController: UIImagePickerController?
     
     override func viewDidLoad() {
         let defaultPic: UIImage = UIImage(named: "default")!
-        photo.layer.cornerRadius = photo.frame.size.width / 2;
+        photo.layer.cornerRadius = photo.frame.width / 2;
         photo.clipsToBounds = true
         photo.image = defaultPic
         
         //allows photo to be tapped
+        photo.userInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(NewCardController.imageTapped(_:)))
         photo.addGestureRecognizer(tapGesture)
-        photo.userInteractionEnabled = true
         
-        let gradient: [UIColor] = [UIColor.flatRedColor(), UIColor.flatPurpleColor()]
-        self.view.backgroundColor = GradientColor(UIGradientStyle.TopToBottom, frame: view.frame, colors: gradient)
+        self.view.backgroundColor = UIColor.lightGrayColor()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(NewCardController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(NewCardController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: nil);
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(NewCardController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        if let card = card {
+            photo.image = UIImage(data: card.imageData)
+            nameField.text = card.name
+            jobField.text = card.job
+            emailField.text = card.email
+            phoneField.text = card.phoneNum
+            view.backgroundColor = UIColor(hexString: hexTheme ?? "CCCCCC")
+        }
+    }
+    
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
+    func keyboardWillShow(sender: NSNotification) {
+        self.view.frame.origin.y = -250
+    }
+    
+    func keyboardWillHide(sender: NSNotification) {
+        self.view.frame.origin.y = 0
     }
     
     func imageTapped(gesture: UIGestureRecognizer) {
@@ -67,6 +102,10 @@ class NewCardController: UIViewController, UIImagePickerControllerDelegate, UINa
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             photo.image = pickedImage
+            let realm = try! Realm()
+            try! realm.write {
+                card?.imageData = UIImageJPEGRepresentation(pickedImage, 0.8)!
+            }
         }
         
         dismissViewControllerAnimated(true, completion: nil)
@@ -79,11 +118,10 @@ class NewCardController: UIViewController, UIImagePickerControllerDelegate, UINa
         
         presentViewController(imagePickerController!, animated: true, completion: nil)
     }
-
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "Save" {
-            let tableViewController = sender?.destinationViewController as! TableViewController
-            
+            let tableViewController = segue.destinationViewController as! TableViewController
             if let card = card {
                 let newCard = Card()
                 newCard.imageData = UIImagePNGRepresentation(photo.image!)!
@@ -91,14 +129,17 @@ class NewCardController: UIViewController, UIImagePickerControllerDelegate, UINa
                 newCard.job = jobField.text ?? ""
                 newCard.email = emailField.text ?? ""
                 newCard.phoneNum = phoneField.text ?? ""
+                newCard.theme = hexTheme ?? ""
                 RealmHelper.updateCard(card, newCard: newCard)
-            } else {
+            }
+            else {
                 let card = Card()
                 card.imageData = UIImagePNGRepresentation(photo.image!)!
                 card.name = nameField.text ?? ""
                 card.job = jobField.text ?? ""
                 card.email = emailField.text ?? ""
                 card.phoneNum = phoneField.text ?? ""
+                card.theme = hexTheme ?? ""
                 RealmHelper.addCard(card)
             }
             

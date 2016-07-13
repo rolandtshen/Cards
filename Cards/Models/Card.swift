@@ -19,4 +19,5 @@ class Card: Object {
     dynamic var email = ""
     dynamic var phoneNum = ""
     dynamic var modificationTime = NSDate()
+    dynamic var theme: NSString = "CCCCCC"
 }

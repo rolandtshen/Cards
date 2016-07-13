@@ -26,17 +26,21 @@ struct RealmHelper {
     }
     
     static func updateCard(origCard: Card, newCard: Card) {
-        origCard.name = newCard.name
-        origCard.imageData = newCard.imageData
-        origCard.email = newCard.email
-        origCard.job = newCard.job
-        origCard.phoneNum = newCard.phoneNum
-        origCard.modificationTime = newCard.modificationTime
+        let realm = try! Realm()
+        try! realm.write() {
+            origCard.name = newCard.name
+            origCard.imageData = newCard.imageData
+            origCard.email = newCard.email
+            origCard.job = newCard.job
+            origCard.phoneNum = newCard.phoneNum
+            origCard.modificationTime = newCard.modificationTime
+            origCard.theme = newCard.theme
+        }
     }
     
     static func getCards() -> Results<Card> {
         let realm = try! Realm()
-        let cards = realm.objects(Card).sorted("modificationTime", ascending: true)
+        let cards = realm.objects(Card).sorted("modificationTime", ascending: false)
         return cards
     }
 }

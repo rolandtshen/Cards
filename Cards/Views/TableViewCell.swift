@@ -14,4 +14,8 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var job: UILabel!
     @IBOutlet weak var picture: UIImageView!
+    @IBOutlet weak var email: UILabel!
+    @IBOutlet weak var phone: UILabel!
+    @IBOutlet weak var cardView: UIView!
+    @IBOutlet weak var line: UIView!
 }

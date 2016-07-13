@@ -8,7 +8,6 @@ target 'Cards' do
   # Pods for Cards
 pod 'ChameleonFramework/Swift'
 pod 'RealmSwift'
-pod 'DZNEmptyDataSet'
 pod "TextFieldEffects"
-pod 'FlatUIKit'
+pod 'DZNEmptyDataSet'
 end

@@ -9,8 +9,8 @@
 import UIKit
 import Foundation
 import ChameleonFramework
-import DZNEmptyDataSet
 import RealmSwift
+import DZNEmptyDataSet
 
 class TableViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     
@@ -20,26 +20,31 @@ class TableViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpt
         }
     }
     
+    override func viewDidAppear(animated: Bool) {
+        tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
-        let gradient: [UIColor] = [UIColor.flatMintColor(),UIColor.flatSkyBlueColor()]
-        self.view.backgroundColor = GradientColor(UIGradientStyle.TopToBottom, frame: view.frame, colors: gradient)
+        self.view.backgroundColor = UIColor.whiteColor()
         //setting up empty data set
+        tableView.tableFooterView = UIView()
+        cards = RealmHelper.getCards()
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         tableView.emptyDataSetSource = self
         tableView.emptyDataSetDelegate = self
         tableView.tableFooterView = UIView()
-        cards = RealmHelper.getCards()
     }
     
     func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
         let str = "You don't have any cards!"
-        let changes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+        let changes = [NSForegroundColorAttributeName : UIColor.blackColor()]
 
         return NSAttributedString(string: str, attributes: changes)
     }
     
     func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
         let str = "Let's start by creating one."
-        let attrs = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+        let attrs = [NSForegroundColorAttributeName : UIColor.blackColor()]
         return NSAttributedString(string: str, attributes: attrs)
     }
     
@@ -49,13 +54,14 @@ class TableViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpt
     
     func buttonTitleForEmptyDataSet(scrollView: UIScrollView!, forState state: UIControlState) -> NSAttributedString! {
         let str = "Add Card"
-        let multipleAttrs = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        let multipleAttrs = [NSForegroundColorAttributeName: UIColor.blackColor()]
         return NSAttributedString(string: str, attributes: multipleAttrs)
     }
     
     func emptyDataSetDidTapButton(scrollView: UIScrollView!) {
         performSegueWithIdentifier("addCard", sender: self)
     }
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(cards != nil) {
             return cards.count
@@ -78,26 +84,23 @@ class TableViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpt
         cell.name.text = card.name
         cell.job.text = card.job
         cell.picture.image = UIImage(data: card.imageData, scale:1.0)
-        
-        //text color
-        cell.name.textColor = UIColor(contrastingBlackOrWhiteColorOn: view.backgroundColor, isFlat: true)
-        cell.job.textColor = UIColor(contrastingBlackOrWhiteColorOn: view.backgroundColor, isFlat: true)
+        cell.email.text = card.email
+        cell.phone.text = card.phoneNum
         
         //round cell corners
-        cell.contentView.layer.cornerRadius = 5
-        cell.contentView.layer.masksToBounds = true
+        cell.cardView.layer.cornerRadius = 15
+        cell.cardView.layer.masksToBounds = true
+        
+        cell.cardView.backgroundColor = UIColor(hexString: card.theme as String)
+        
+        //text color
+        cell.name.textColor = UIColor(contrastingBlackOrWhiteColorOn: cell.cardView.backgroundColor, isFlat: true)
+        cell.job.textColor = UIColor(contrastingBlackOrWhiteColorOn: cell.cardView.backgroundColor, isFlat: true)
+        cell.email.textColor = UIColor(contrastingBlackOrWhiteColorOn: cell.cardView.backgroundColor, isFlat: true)
+        cell.phone.textColor = UIColor(contrastingBlackOrWhiteColorOn: cell.cardView.backgroundColor, isFlat: true)
         
         return cell
     }
-    
-//    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-//        if(cards != nil) {
-//            return cards.count
-//        }
-//        else {
-//            return 1
-//        }
-//    }
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         let card = cards[indexPath.row]
@@ -113,6 +116,17 @@ class TableViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpt
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
+        if let identifier = segue.identifier {
+            if identifier == "displayCard" {
+                print("Table view cell tapped")
+                let indexPath = tableView.indexPathForSelectedRow!
+                let card = cards[indexPath.row]
+                let displayCard = segue.destinationViewController as! NewCardController
+                displayCard.card = card
+            }
+            else if identifier == "viewThemePicker" {
+                //do nothing
+            }
+        }
     }
 }

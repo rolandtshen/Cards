@@ -3,7 +3,6 @@ PODS:
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
   - DZNEmptyDataSet (1.8.1)
-  - FlatUIKit (1.6.2)
   - Realm (1.0.1):
     - Realm/Headers (= 1.0.1)
   - Realm/Headers (1.0.1)
@@ -14,18 +13,16 @@ PODS:
 DEPENDENCIES:
   - ChameleonFramework/Swift
   - DZNEmptyDataSet
-  - FlatUIKit
   - RealmSwift
   - TextFieldEffects
 
 SPEC CHECKSUMS:
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  FlatUIKit: 1b41f0d4952ce8d970d8479ce79df54a960242c4
   Realm: 2e15e39d35b08abb529e212ed5d8af107b5236c8
   RealmSwift: d73ea2af08c3676dbdd5e4b669651a0f492162a4
   TextFieldEffects: bc4fd3bd557321bd61a0762f3f50965477a36f62
 
-PODFILE CHECKSUM: 631ff01d88da0a41b1853fc4d42775a5e2dd679d
+PODFILE CHECKSUM: 35a08b9a924ffeb4d8581bc913addd2dc7ff1287
 
 COCOAPODS: 1.0.1

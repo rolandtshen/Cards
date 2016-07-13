@@ -14,11 +14,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>FlatUIKit.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-Cards.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,7 +42,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4D709D56F0FC251A78E5E965E734DA86</key>
+		<key>3E90EE4FFDBF72EB99C15C60C3B8269F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,22 +52,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AD0892BE565CA9D5A839B9137561277C</key>
+		<key>BDA0FE2E74B8FFF8636463EE4144C8EF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BA50F8DC8BC11440714A9D9A0B1992EF</key>
+		<key>DD2E74D26AC751410761519474DD4D03</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C3B4882137F5F01672814C609A8A3E55</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D32DA486A19F8684FB9E0B09F613A86F</key>
+		<key>DD3F1912747350AE74527990991DD54C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

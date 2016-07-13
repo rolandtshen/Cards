@@ -20,7 +20,6 @@
 		2A9F3FA51D2C67CE00607FF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A9F3FA31D2C67CE00607FF8 /* Main.storyboard */; };
 		2A9F3FA71D2C67CE00607FF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A9F3FA61D2C67CE00607FF8 /* Assets.xcassets */; };
 		2A9F3FAA1D2C67CE00607FF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A9F3FA81D2C67CE00607FF8 /* LaunchScreen.storyboard */; };
-		2AC424A71D2DD6090090D9E1 /* ViewCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC424A61D2DD6090090D9E1 /* ViewCardController.swift */; };
 		C7734B95FF84FCC8EADC7A51 /* Pods_Cards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E951EA67CB949097C75978A9 /* Pods_Cards.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,7 +40,6 @@
 		2A9F3FA61D2C67CE00607FF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2A9F3FA91D2C67CE00607FF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2A9F3FAB1D2C67CE00607FF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2AC424A61D2DD6090090D9E1 /* ViewCardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewCardController.swift; sourceTree = "<group>"; };
 		67B9C990673C44D6CA1AC6C8 /* Pods-Cards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cards.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cards/Pods-Cards.release.xcconfig"; sourceTree = "<group>"; };
 		D72285B060830E582EF3FA3C /* Pods-Cards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cards.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cards/Pods-Cards.debug.xcconfig"; sourceTree = "<group>"; };
 		E951EA67CB949097C75978A9 /* Pods_Cards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,7 +84,6 @@
 		2A88B1731D2C6FEA00163CC0 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				2AC424A61D2DD6090090D9E1 /* ViewCardController.swift */,
 				2A88B17F1D2C792B00163CC0 /* TableViewController.swift */,
 				2A50C8F91D2D6D03001524E5 /* NewCardController.swift */,
 				2A14ECA51D2DA0F3000140DD /* ThemePicker.swift */,
@@ -289,7 +286,6 @@
 				2A14ECA61D2DA0F3000140DD /* ThemePicker.swift in Sources */,
 				2A88B1801D2C792B00163CC0 /* TableViewController.swift in Sources */,
 				2A7947DF1D2F132800AE18E9 /* ThemePickerCell.swift in Sources */,
-				2AC424A71D2DD6090090D9E1 /* ViewCardController.swift in Sources */,
 				2A88B17C1D2C76D300163CC0 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
